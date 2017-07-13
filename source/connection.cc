@@ -375,6 +375,7 @@ RestClient::Connection::performCurlRequest(const std::string& uri) {
 
   res = curl_easy_perform(this->curlHandle);
   if (res != CURLE_OK) {
+    std::cout << "NOK CURL: " << curl_easy_strerror(res);
     switch (res) {
       case CURLE_OPERATION_TIMEDOUT:
         ret.code = res;
